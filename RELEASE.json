@@ -1,0 +1,11 @@
+{
+  "version": "1.10.1-alpha.1",
+  "versionCode": 12,
+  "repository": "VictorAgents/livingroom-launcher",
+  "package": "com.skyworthdigital.sky2dlauncher",
+  "compatibility": {"model": "A4093", "api": 28, "abi": "armeabi-v7a", "requiresUnusedWhitelistedPackage": true},
+  "baselineDeviceVersion": "1.10",
+  "communityDeviceValidation": "not-installed-on-device",
+  "secondDeviceValidation": "not-tested",
+  "nativeBootVideo": "read-only-investigation-only"
+}

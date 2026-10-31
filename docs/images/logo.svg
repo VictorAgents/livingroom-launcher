@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="base" x2="1" y2="1"><stop stop-color="#172238"/><stop offset="1" stop-color="#090F1C"/></linearGradient>
+    <radialGradient id="light"><stop stop-color="#367DC8" stop-opacity=".7"/><stop offset="1" stop-color="#367DC8" stop-opacity="0"/></radialGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="108"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="url(#base)"/>
+    <ellipse cx="335" cy="430" rx="270" ry="220" fill="url(#light)"/>
+    <rect x="132" y="146" width="248" height="182" rx="34" fill="#FFFFFF" fill-opacity=".025" stroke="#F2F6FF" stroke-width="16"/>
+    <path d="M232 196 L294 236 L232 276 Z" fill="#A5DAFF"/>
+    <path d="M256 337 V358 M222 366 H290" stroke="#F2F6FF" stroke-width="14" stroke-linecap="round"/>
+    <rect x="1" y="1" width="510" height="510" rx="107" fill="none" stroke="#FFFFFF" stroke-opacity=".10" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+.gradle/
+**/build/
+local.properties
+dist/
+.cache/
+installer/tools/
+installer/payload/
+installer/backups/
+installer/checksums.json
+installer/.cache/
+*.apk
+*.p12
+*.jks
+*.keystore
+*.log
+__pycache__/
+*.pyc

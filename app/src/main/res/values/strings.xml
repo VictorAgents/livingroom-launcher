@@ -1,0 +1,3 @@
+<resources>
+    <string name="tencent_back_description">仅在腾讯视频的根首页将返回键适配为返回客厅。影片详情、播放器和其他应用的按键保持原行为；不读取屏幕内容。</string>
+</resources>

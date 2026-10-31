@@ -1,0 +1,18 @@
+plugins { id 'com.android.application' }
+def releaseInfo = new groovy.json.JsonSlurper().parse(rootProject.file('RELEASE.json'))
+android {
+    namespace 'cn.arthur.livingroom'
+    compileSdk 28
+    defaultConfig {
+        applicationId 'com.skyworthdigital.sky2dlauncher'
+        minSdk 21
+        targetSdk 28
+        versionCode releaseInfo.versionCode as int
+        versionName releaseInfo.version
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildTypes { release { minifyEnabled false } }
+}

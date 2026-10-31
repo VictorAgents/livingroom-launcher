@@ -1,0 +1,4 @@
+interface:
+  display_name: "客厅安装助手"
+  short_description: "检查与安装极光A4093客厅首页，保留本机备份并验证遥控器返回"
+  default_prompt: "使用 $livingroom-install 帮我检查并安装客厅首页，先确认目标盒子和权限范围，保留恢复备份。"

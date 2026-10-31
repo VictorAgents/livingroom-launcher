@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+  <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+  <application android:label="客厅" android:icon="@drawable/ic_launcher" android:banner="@drawable/app_banner" android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" android:allowBackup="true">
+    <service android:name="cn.arthur.livingroom.TencentBackService" android:label="腾讯首页返回客厅"
+        android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" android:exported="true">
+      <intent-filter><action android:name="android.accessibilityservice.AccessibilityService"/></intent-filter>
+      <meta-data android:name="android.accessibilityservice" android:resource="@xml/tencent_back"/>
+    </service>
+    <activity android:name="cn.arthur.livingroom.HomeActivity" android:screenOrientation="landscape" android:exported="true" android:launchMode="singleTask">
+      <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.HOME"/><category android:name="android.intent.category.DEFAULT"/></intent-filter>
+    </activity>
+    <activity android:name="cn.arthur.livingroom.OpenHomeActivity" android:exported="true" android:theme="@android:style/Theme.NoDisplay">
+      <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
+    </activity>
+  </application>
+</manifest>
