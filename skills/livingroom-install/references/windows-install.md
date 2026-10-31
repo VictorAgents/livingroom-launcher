@@ -5,16 +5,16 @@
 技能下载助手只下载官方项目 ZIP 和 SHA256SUMS，校验 ZIP后解压；不自动执行 APK 或修改设备。输出目录含 LivingRoom-PC。失败就停止，不从其他站点补下载，也不跳过校验。校验和与发布包同源，只能检查完整性，不能独立证明发布者身份。
 
 ```powershell
-# 路径中的 SKILL 和 WORK 由当前 Agent 解析成实际绝对目录
-& 'SKILL/scripts/Get-Release.ps1' -Destination 'WORK'
-& 'WORK/LivingRoom-PC/Prepare.ps1' -SkipKodi
-& 'WORK/LivingRoom-PC/Install.ps1' -Device '192.168.1.50' -CheckOnly
+# SKILL 和 WORK 替换为实际绝对目录；下载助手返回带唯一子目录的安装路径
+$kit = & 'SKILL/scripts/Get-Release.ps1' -Destination 'WORK'
+& (Join-Path $kit 'Prepare.ps1') -SkipKodi
+& (Join-Path $kit 'Install.ps1') -Device '192.168.1.50' -CheckOnly
 ```
 
 已获得用户对首页及返回权限授权、且只要最小改造时：
 
 ```powershell
-& 'WORK/LivingRoom-PC/Install.ps1' -Device '192.168.1.50' -SkipKodi -SkipDeviceTuning -AcceptChanges
+& (Join-Path $kit 'Install.ps1') -Device '192.168.1.50' -SkipKodi -SkipDeviceTuning -AcceptChanges
 ```
 
 完整模式先不带 SkipKodi 准备，再不带 SkipDeviceTuning 安装。`-AcceptChanges` 只省略文本确认；必须沿用当前用户已授权范围。不能因为技能包含此参数就认为已获授权。
@@ -26,9 +26,9 @@
 恢复示例：
 
 ```powershell
-& 'WORK/LivingRoom-PC/Install.ps1' -Device '192.168.1.50' -Restore 'BACKUP.json' -CheckOnly
+& (Join-Path $kit 'Install.ps1') -Device '192.168.1.50' -Restore 'BACKUP.json' -CheckOnly
 # 用户授权恢复该备份后
-& 'WORK/LivingRoom-PC/Install.ps1' -Device '192.168.1.50' -Restore 'BACKUP.json' -AcceptChanges
+& (Join-Path $kit 'Install.ps1') -Device '192.168.1.50' -Restore 'BACKUP.json' -AcceptChanges
 ```
 
 恢复仅还原受管理设置、权限、默认HOME和客厅服务成员状态；保留后来新增的其他辅助服务、APK与Kodi数据。没有有效同设备备份时，不能使用别人的备份，也不能保证回原厂。
